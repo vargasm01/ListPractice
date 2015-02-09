@@ -58,4 +58,8 @@ public class Book {
         example.returned();
         System.out.println("Borrowed? (should be false): " + example.isBorrowed());
     }
+
+    private void rented() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 } 
