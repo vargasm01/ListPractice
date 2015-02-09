@@ -1,5 +1,10 @@
 package lab1;
 
+/**
+* Represents a book.
+* @author Mauricio Vargas
+*/
+
 public class Book {
 
     private String title;
