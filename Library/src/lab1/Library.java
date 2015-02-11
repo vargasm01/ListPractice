@@ -10,7 +10,39 @@ package lab1;
  * @author rkhatchadourian
  */
 public class Library {
-    // Add the missing implementation to this class
+    
+    /**
+     * This library's street address.
+     */
+    private String address;
+    /**
+     * Creates a new library with the given street address.
+     * @param streetAddress 
+     */
+    public Library (String streetAddress){
+        address = streetAddress;
+    }
+    
+    public void printAddress() {
+        System.out.println(this.address);
+    }        
+    /**
+     * the hour all libraries are open.
+     */
+    private static final String OPENING_HOURS = "9am";
+    /**
+     * the hour all libraries are closed.
+     */
+    private static final String CLOSING_HOURS = "5pm";
+    
+    public static void printOpeningHours() {
+        System.out.println("The library is opened from" + 
+                Library.OPENING_HOURS + " to " + Library.CLOSING_HOURS + ".");
+    }
+    /**
+     * This library's collection of books.
+     */
+    private list<Book> bookCollection = new ArrayList();
 
     public static void main(String[] args) {
         // Create two libraries
@@ -28,49 +60,38 @@ public class Library {
         printOpeningHours();
         System.out.println();
 
-        System.out.println("Library addresses:");
-        firstLibrary.printAddress();
-        secondLibrary.printAddress();
-        System.out.println();
+//        System.out.println("Library addresses:");
+//        firstLibrary.printAddress();
+//        secondLibrary.printAddress();
+//        System.out.println();
 
         // Try to borrow The Lords of the Rings from both libraries
-        System.out.println("Borrowing The Lord of the Rings:");
-        firstLibrary.borrowBook("The Lord of the Rings");
-        firstLibrary.borrowBook("The Lord of the Rings");
-        secondLibrary.borrowBook("The Lord of the Rings");
-        System.out.println();
+//        System.out.println("Borrowing The Lord of the Rings:");
+//        firstLibrary.borrowBook("The Lord of the Rings");
+//        firstLibrary.borrowBook("The Lord of the Rings");
+//        secondLibrary.borrowBook("The Lord of the Rings");
+//        System.out.println();
 
         // Print the titles of all available books from both libraries
-        System.out.println("Books available in the first library:");
-        firstLibrary.printAvailableBooks();
-        System.out.println();
-        System.out.println("Books available in the second library:");
-        secondLibrary.printAvailableBooks();
-        System.out.println();
+//        System.out.println("Books available in the first library:");
+//        firstLibrary.printAvailableBooks();
+//        System.out.println();
+//        System.out.println("Books available in the second library:");
+//        secondLibrary.printAvailableBooks();
+//        System.out.println();
 
         // Return The Lords of the Rings to the first library
-        System.out.println("Returning The Lord of the Rings:");
-        firstLibrary.returnBook("The Lord of the Rings");
-        System.out.println();
+//        System.out.println("Returning The Lord of the Rings:");
+//        firstLibrary.returnBook("The Lord of the Rings");
+//        System.out.println();
 
         // Print the titles of available from the first library
-        System.out.println("Books available in the first library:");
-        firstLibrary.printAvailableBooks();
+//        System.out.println("Books available in the first library:");
+//        firstLibrary.printAvailableBooks();
     }
 
-    private static void printOpeningHours() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Library(String _Main_St) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     private void addBook(Book book) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void printAddress() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
