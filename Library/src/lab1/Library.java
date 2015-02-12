@@ -1,49 +1,103 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab1;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
- * @author rkhatchadourian
+ * @author Mauricio Vargas
  */
 public class Library {
     
     /**
+     * The hour that every library opens.
+     */
+    private static final String OPENING_HOUR = "9am";
+    
+    /**
+     * The hour that every library closes.
+     */
+    private static final String CLOSING_HOUR = "5pm";
+
+    /**
      * This library's street address.
      */
     private String address;
-    /**
-     * Creates a new library with the given street address.
-     * @param streetAddress 
-     */
-    public Library (String streetAddress){
-        address = streetAddress;
-    }
     
-    public void printAddress() {
-        System.out.println(this.address);
-    }        
-    /**
-     * the hour all libraries are open.
-     */
-    private static final String OPENING_HOURS = "9am";
-    /**
-     * the hour all libraries are closed.
-     */
-    private static final String CLOSING_HOURS = "5pm";
-    
-    public static void printOpeningHours() {
-        System.out.println("The library is opened from" + 
-                Library.OPENING_HOURS + " to " + Library.CLOSING_HOURS + ".");
-    }
     /**
      * This library's collection of books.
      */
-    private list<Book> bookCollection = new ArrayList();
-
+    private List<Book> bookCollection = new ArrayList();
+    
+    /**
+     * Prints the opening hours for all libraries.
+     */
+    public static void printOpeningHours() {
+        System.out.println("The library is open from " + OPENING_HOUR + 
+                " until " + CLOSING_HOUR + ".");
+    }
+    
+    /**
+     * Creates a new library with the given street address.
+     * @param streetAddress The library's address.
+     */
+    public Library(String streetAddress) {
+        address = streetAddress;
+    }
+    
+    /**
+     * Prints this library's address.
+     */
+    public void printAddress() {
+        System.out.println(this.address);
+    }
+    
+    /**
+     * Adds a book to this library's collection.
+     * @param book The book to add.
+     */
+    public void addBook(Book book) {
+        this.bookCollection.add(book);
+    }
+    
+    /**
+     * Print all available books at this library.
+     */
+    public void printAvailableBooks() {
+        //For each book in this library's book collection.
+        for (Book book : this.bookCollection) {
+            if (!book.isBorrowed()) //if the book is available.
+                System.out.println(book.getTitle()); //print its title.
+        }
+    }
+    
+    public void borrowBook(String bookname) {
+        for (Book bookCollection1 : bookCollection) {
+            if (bookCollection1.getTitle().equals(bookname) && 
+                    (!(bookCollection1.isBorrowed()))) {
+                bookCollection1.borrowed();
+                break;
+            }
+        }
+        System.out.println("You have successfully borrowed " + bookname);
+        }
+    
+   public void returnBook(String bookname) {
+        for (Book bookCollection1 : this.bookCollection) {
+            if (bookCollection1.getTitle().equals(bookname)) {
+                bookCollection1.returned();
+                break;
+            }
+        }
+        System.out.println("You have successfully returned " + bookname);
+    }
+   
+   public void s(String bookname){
+       for (Book book : this.bookCollection) {
+            if (book.isBorrowed())
+                System.out.println("Sorry, this book is already borrowed");
+       }
+   }
     public static void main(String[] args) {
         // Create two libraries
         Library firstLibrary = new Library("10 Main St.");
@@ -60,50 +114,35 @@ public class Library {
         printOpeningHours();
         System.out.println();
 
-//        System.out.println("Library addresses:");
-//        firstLibrary.printAddress();
-//        secondLibrary.printAddress();
-//        System.out.println();
+        System.out.println("Library addresses:");
+        firstLibrary.printAddress();
+        secondLibrary.printAddress();
+        System.out.println();
 
         // Try to borrow The Lords of the Rings from both libraries
-//        System.out.println("Borrowing The Lord of the Rings:");
-//        firstLibrary.borrowBook("The Lord of the Rings");
-//        firstLibrary.borrowBook("The Lord of the Rings");
-//        secondLibrary.borrowBook("The Lord of the Rings");
-//        System.out.println();
+        System.out.println("Borrowing The Lord of the Rings:");
+        firstLibrary.borrowBook("The Lord of the Rings");
+        firstLibrary.s("The Lord of the Rings");
+        secondLibrary.borrowBook("The Lord of the Rings");
+        System.out.println();
 
         // Print the titles of all available books from both libraries
-//        System.out.println("Books available in the first library:");
-//        firstLibrary.printAvailableBooks();
-//        System.out.println();
-//        System.out.println("Books available in the second library:");
-//        secondLibrary.printAvailableBooks();
-//        System.out.println();
+        System.out.println("Books available in the first library:");
+        firstLibrary.printAvailableBooks();
+        System.out.println();
+        System.out.println("Books available in the second library:");
+        secondLibrary.printAvailableBooks();
+        System.out.println();
 
         // Return The Lords of the Rings to the first library
-//        System.out.println("Returning The Lord of the Rings:");
-//        firstLibrary.returnBook("The Lord of the Rings");
-//        System.out.println();
+        System.out.println("Returning The Lord of the Rings:");
+        firstLibrary.returnBook("The Lord of the Rings");
+        System.out.println();
 
         // Print the titles of available from the first library
-//        System.out.println("Books available in the first library:");
-//        firstLibrary.printAvailableBooks();
+        System.out.println("Books available in the first library:");
+        firstLibrary.printAvailableBooks();
     }
 
-
-    private void addBook(Book book) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void borrowBook(String the_Lord_of_the_Rings) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void printAvailableBooks() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void returnBook(String the_Lord_of_the_Rings) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
+
