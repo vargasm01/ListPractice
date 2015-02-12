@@ -2,7 +2,6 @@ package lab1;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  *
  * @author Mauricio Vargas
