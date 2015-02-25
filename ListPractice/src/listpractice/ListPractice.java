@@ -25,28 +25,35 @@ public class ListPractice {
         stringList.add("Curly");
 
         System.out.println(stringList.size());
-        System.out.print("______________________________");
+        System.out.println("______________________________");
         System.out.println(stringList.get(0));
-        System.out.print("______________________________");
+        System.out.println("______________________________");
         System.out.println(stringList.get(1));
 
         stringList.set(0, "John");
         stringList.remove(1);
-        
-        System.out.print("______________________________");
-        
+
+        System.out.println("______________________________");
+
         for (int i = 0; i < stringList.size(); i++) {
             System.out.println(stringList.get(i));
         }
-        
-        System.out.print("______________________________");
-        
+
+        System.out.println("______________________________");
+
         for (String name : stringList) {
             System.out.println(name);
         }
-        
-        System.out.print("______________________________");
+
+        System.out.println("______________________________");
         //todo: extra credit, two other forms to print list
+
+        System.out.println(stringList);
+
+        System.out.println("______________________________");
+
+        System.out.println(stringList.toString());
+
     }
 
 }
